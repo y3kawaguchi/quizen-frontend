@@ -6,7 +6,8 @@
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --mode development",
     "build": "./node_modules/.bin/webpack --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "prettier --config .prettierrc --write src/"
   },
   "husky": {
     "hooks": {
@@ -15,7 +16,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "prettier -c .prettierrc src/"
+      "prettier --config .prettierrc --write src/"
     ]
   },
   "repository": {
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/y3kawaguchi/quizen-frontend#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.11",
