@@ -7,11 +7,10 @@ export default function TableHeader() {
   return (
     <TableHead>
       <TableRow>
-        <StyledTableCell>列1</StyledTableCell>
-        <StyledTableCell align="right">列2</StyledTableCell>
-        <StyledTableCell align="right">列3</StyledTableCell>
-        <StyledTableCell align="right">列4</StyledTableCell>
-        <StyledTableCell align="right">列5</StyledTableCell>
+        <StyledTableCell>No.</StyledTableCell>
+        <StyledTableCell align="right">問題</StyledTableCell>
+        <StyledTableCell align="right">ステータス</StyledTableCell>
+        <StyledTableCell align="right">回答結果</StyledTableCell>
       </TableRow>
     </TableHead>
   );
