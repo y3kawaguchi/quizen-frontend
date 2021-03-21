@@ -15,12 +15,11 @@
 // export default hot(module)(App);
 
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import Home from "./components/Home";
-import List from "./components/List";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Details from "./components/Details";
 import Error from "./components/Error";
+import Home from "./components/Home";
+import List from "./components/List";
 
 const App = () => {
   return (
@@ -51,7 +50,7 @@ const App = () => {
             <List />
           </Route>
           <Route path="/details" exact>
-            <Details />
+            <Details choices={["選択肢1", "選択肢2", "選択肢3", "選択肢4"]} />
           </Route>
           <Route path="/" exact>
             <Home />
