@@ -1,25 +1,10 @@
-// import React, { Component} from "react";
 // import {hot} from "react-hot-loader";
-// import "./App.css";
-
-// class App extends Component{
-//   render(){
-//     return(
-//       <div className="App">
-//         <h1> Hello, World! </h1>
-//       </div>
-//     );
-//   }
-// }
-
-// export default hot(module)(App);
-
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Details from "./components/Details";
 import Error from "./components/Error";
 import Home from "./components/Home";
-import List from "./components/List";
+import ListScreen from "./containers/ListScreen";
 
 const App = () => {
   return (
@@ -47,7 +32,7 @@ const App = () => {
         {/* URL ごとのレンダリング内容の定義。exactを付けると完全一致、付けないと完全一致で比較せず、path が/aboutの場合、/about/aなどでも一致とみなされる */}
         <Switch>
           <Route path="/list" exact>
-            <List />
+            <ListScreen />
           </Route>
           <Route path="/details" exact>
             <Details choices={["選択肢1", "選択肢2", "選択肢3", "選択肢4"]} />
@@ -65,4 +50,5 @@ const App = () => {
   );
 };
 
+// export default hot(module)(App);
 export default App;

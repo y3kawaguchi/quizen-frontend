@@ -8,25 +8,14 @@ import TableHeader from "./Header";
 import StyledTableCell from "./StyledTableCell";
 import StyledTableRow from "./StyledTableRow";
 
-function createData(no, question, status, result) {
-  return { no, question, status, result };
-}
-
-const rows = [
-  createData(1, "問題1", "未回答", "-"),
-  createData(2, "問題2", "未回答", "-"),
-  createData(3, "問題3", "未回答", "-"),
-  createData(4, "問題4", "未回答", "-"),
-  createData(5, "問題5", "未回答", "-"),
-];
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
 });
 
-export default function CustomizedTables() {
+export default (props) => {
+  const { quizzes } = props;
   const classes = useStyles();
 
   return (
@@ -34,18 +23,18 @@ export default function CustomizedTables() {
       <Table className={classes.table} aria-label="customized table">
         <TableHeader />
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+          {quizzes.map((quize, index) => (
+            <StyledTableRow key={index}>
               <StyledTableCell component="th" scope="row">
-                {row.no}
+                {quize.no}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.question}</StyledTableCell>
-              <StyledTableCell align="right">{row.status}</StyledTableCell>
-              <StyledTableCell align="right">{row.result}</StyledTableCell>
+              <StyledTableCell align="right">{quize.question}</StyledTableCell>
+              <StyledTableCell align="right">{quize.status}</StyledTableCell>
+              <StyledTableCell align="right">{quize.result}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};

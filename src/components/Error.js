@@ -1,7 +1,5 @@
 import React from "react";
 
-const Error = () => {
+export default () => {
   return <h2>エラー画面</h2>;
 };
-
-export default Error;

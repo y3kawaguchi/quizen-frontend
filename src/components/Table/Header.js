@@ -3,7 +3,7 @@ import TableRow from "@material-ui/core/TableRow";
 import React from "react";
 import StyledTableCell from "./StyledTableCell";
 
-export default function TableHeader() {
+export default () => {
   return (
     <TableHead>
       <TableRow>
@@ -14,4 +14,4 @@ export default function TableHeader() {
       </TableRow>
     </TableHead>
   );
-}
+};
