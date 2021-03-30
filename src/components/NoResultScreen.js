@@ -1,5 +1,5 @@
 import React from "react";
 
 export default () => {
-  return <h2>ホーム画面</h2>;
+  return <h2>クイズはありません</h2>;
 };

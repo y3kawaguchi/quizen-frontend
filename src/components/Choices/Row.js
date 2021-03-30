@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Row = (props) => {
+export default (props) => {
   const classes = useStyles();
 
   return (
@@ -27,5 +27,3 @@ const Row = (props) => {
     </React.Fragment>
   );
 };
-
-export default Row;

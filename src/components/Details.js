@@ -1,8 +1,8 @@
 import React from "react";
 import Choices from "./Choices";
 
-const Details = (props) => {
-  const choices = props.choices;
+export default (props) => {
+  const { choices } = props;
   return (
     <React.Fragment>
       <h2>問題</h2>
@@ -16,5 +16,3 @@ const Details = (props) => {
     </React.Fragment>
   );
 };
-
-export default Details;

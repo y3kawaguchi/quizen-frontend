@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Choices = (props) => {
+export default (props) => {
   const { choices1, choices2, choices3, choices4 } = props;
   const classes = useStyles();
 
@@ -26,5 +26,3 @@ const Choices = (props) => {
     </div>
   );
 };
-
-export default Choices;
