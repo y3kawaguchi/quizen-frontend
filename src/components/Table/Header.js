@@ -7,7 +7,7 @@ export default () => {
   return (
     <TableHead>
       <TableRow>
-        <StyledTableCell>No.</StyledTableCell>
+        <StyledTableCell>ID</StyledTableCell>
         <StyledTableCell align="right">問題</StyledTableCell>
         <StyledTableCell align="right">ステータス</StyledTableCell>
         <StyledTableCell align="right">回答結果</StyledTableCell>

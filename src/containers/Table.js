@@ -1,11 +1,11 @@
 import React from "react";
 import Table from "../components/Table";
 
-const createData = (no, question, status, result) => {
-  return { no, question, status, result };
+const createData = (id, question, status, result) => {
+  return { id, question, status, result };
 };
 
-export const TableContainer = () => {
+export default () => {
   // TODO: APIでGETする
   const quizzes = [
     createData(1, "問題1", "未回答", "-"),
@@ -17,5 +17,3 @@ export const TableContainer = () => {
 
   return <Table quizzes={quizzes} />;
 };
-
-export default TableContainer;

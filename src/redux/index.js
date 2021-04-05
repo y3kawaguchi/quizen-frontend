@@ -2,7 +2,10 @@ import { handleActions } from "redux-actions";
 import * as actions from "./actions";
 
 const initialState = {
-  quizzes: 0,
+  loadingQuiz: false,
+  loadingQuizzes: false,
+  quiz: {},
+  quizzes: {},
 };
 
 const reducer = handleActions(
@@ -24,11 +27,25 @@ const reducer = handleActions(
     //     error   : {boolean},       // エラーかどうか
     //     meta    : {any},           // payloadに乗らなかった情報
     //   }
+    [actions.loadQuiz]: (state, action) => ({
+      ...state,
+      loadingQuiz: true,
+    }),
+    [actions.loadQuizSucceeded]: (state, action) => ({
+      ...state,
+      loadingQuizzes: false,
+      quiz: action.payload,
+    }),
+    // [actions.loadQuizzes]: (state, action) => Object.assign({}, state, { loadingQuizzes: true }),
     [actions.loadQuizzes]: (state, action) => ({
       ...state,
+      loadingQuizzes: true,
+    }),
+    [actions.loadQuizzesSucceeded]: (state, action) => ({
+      ...state,
+      loadingQuizzes: false,
       quizzes: action.payload,
     }),
-    // [actions.loadQuizzes]: (state, action) => Object.assign({}, state, { quizzes: action.payload }),
   },
   initialState
 );

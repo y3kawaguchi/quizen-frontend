@@ -4,6 +4,7 @@ import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import TableHeader from "./Header";
 import StyledTableCell from "./StyledTableCell";
 import StyledTableRow from "./StyledTableRow";
@@ -17,20 +18,22 @@ const useStyles = makeStyles({
 export default (props) => {
   const { quizzes } = props;
   const classes = useStyles();
+  const history = useHistory();
+  const handleLink = (path) => history.push(path);
 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHeader />
         <TableBody>
-          {quizzes.map((quize, index) => (
-            <StyledTableRow key={index}>
+          {quizzes.map((quiz, index) => (
+            <StyledTableRow onClick={() => handleLink(`/details/${quiz.id}`)} key={index}>
               <StyledTableCell component="th" scope="row">
-                {quize.no}
+                {quiz.id}
               </StyledTableCell>
-              <StyledTableCell align="right">{quize.question}</StyledTableCell>
-              <StyledTableCell align="right">{quize.status}</StyledTableCell>
-              <StyledTableCell align="right">{quize.result}</StyledTableCell>
+              <StyledTableCell align="right">{quiz.question}</StyledTableCell>
+              <StyledTableCell align="right">{quiz.status}</StyledTableCell>
+              <StyledTableCell align="right">{quiz.result}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

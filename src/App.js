@@ -20,12 +20,9 @@ const App = () => {
             <li>
               <Link to="/list">一覧画面</Link>
             </li>
-            <li>
-              <Link to="/details">詳細画面</Link>
-            </li>
-            <li>
+            {/* <li>
               <Link to="/undefined">実在しない画面へのリンク</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
 
@@ -34,7 +31,7 @@ const App = () => {
           <Route path="/list" exact>
             <ListScreen />
           </Route>
-          <Route path="/details" exact>
+          <Route path="/details/:detailsId">
             <Details choices={["選択肢1", "選択肢2", "選択肢3", "選択肢4"]} />
           </Route>
           <Route path="/" exact>
