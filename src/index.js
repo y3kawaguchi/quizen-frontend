@@ -4,10 +4,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import App from "./App";
-import createStore from "./redux/store";
+import quizenSaga from "./redux/sagas";
+import createStore, { sagaMiddleware } from "./redux/store";
 
 const history = createBrowserHistory();
 const store = createStore(history);
+
+sagaMiddleware.run(quizenSaga);
 
 ReactDOM.render(
   <Provider store={store}>
