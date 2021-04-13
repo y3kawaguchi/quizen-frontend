@@ -8,9 +8,8 @@ export default () => {
     <TableHead>
       <TableRow>
         <StyledTableCell>ID</StyledTableCell>
-        <StyledTableCell align="right">問題</StyledTableCell>
-        <StyledTableCell align="right">ステータス</StyledTableCell>
-        <StyledTableCell align="right">回答結果</StyledTableCell>
+        {/* <StyledTableCell align="right">タイトル</StyledTableCell> */}
+        <StyledTableCell>題名</StyledTableCell>
       </TableRow>
     </TableHead>
   );

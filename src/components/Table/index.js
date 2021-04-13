@@ -31,9 +31,8 @@ export default (props) => {
               <StyledTableCell component="th" scope="row">
                 {quiz.id}
               </StyledTableCell>
-              <StyledTableCell align="right">{quiz.question}</StyledTableCell>
-              <StyledTableCell align="right">{quiz.status}</StyledTableCell>
-              <StyledTableCell align="right">{quiz.result}</StyledTableCell>
+              {/* <StyledTableCell align="right">{quiz.title}</StyledTableCell> */}
+              <StyledTableCell>{quiz.title}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
