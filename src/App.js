@@ -6,7 +6,7 @@ import Error from "./components/Error";
 import BodyFrame from "./components/frames/BodyFrame";
 import MainFrame from "./components/frames/MainFrame";
 import Header from "./components/Header";
-import Home from "./components/Home";
+import Top from "./components/Top";
 import SideBar from "./components/SideBar";
 import ListScreen from "./containers/ListScreen";
 
@@ -27,7 +27,7 @@ const App = () => {
               <Details choices={["選択肢1", "選択肢2", "選択肢3", "選択肢4"]} />
             </Route>
             <Route path="/" exact>
-              <Home />
+              <Top />
             </Route>
             {/* 定義していないURLにアクセスされた場合のレンダリング内容を指定したい場合は、path を指定しない Route を最後に記述しておくことで対応可能 */}
             <Route>
