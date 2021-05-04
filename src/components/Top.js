@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Table from "../containers/Table";
-import { showList } from "../redux/actions";
+import { showTop } from "../redux/actions";
 
 export default () => {
   const dispatch = useDispatch();
@@ -9,8 +8,8 @@ export default () => {
 
   // https://ja.reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects
   useEffect(() => {
-    dispatch(showList());
+    dispatch(showTop());
   }, [sideBarItem]);
 
-  return <Table />;
+  return <h2>Top</h2>;
 };

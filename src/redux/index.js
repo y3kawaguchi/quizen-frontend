@@ -6,6 +6,7 @@ const initialState = {
   loadingQuizzes: false,
   quiz: {},
   quizzes: {},
+  sideBarItem: "top",
 };
 
 const reducer = handleActions(
@@ -45,6 +46,14 @@ const reducer = handleActions(
       ...state,
       loadingQuizzes: false,
       quizzes: action.payload,
+    }),
+    [actions.showList]: (state, action) => ({
+      ...state,
+      sideBarItem: "list",
+    }),
+    [actions.showTop]: (state, action) => ({
+      ...state,
+      sideBarItem: "top",
     }),
   },
   initialState
