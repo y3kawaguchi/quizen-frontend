@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import TableFrame from "../components/frames/TableFrame";
 import ListScreen from "../components/ListScreen";
 import { loadQuiz, loadQuizzes } from "../redux/actions";
 
@@ -11,8 +12,7 @@ export class ListScreenContainer extends Component {
 
   render() {
     return (
-      <div>
-        <div>一覧画面</div>
+      <TableFrame>
         <ListScreen />
         <Button onClick={() => this.props.loadQuizzes("params")} variant="contained">
           【開発用】LOAD_QUIZZES
@@ -20,7 +20,7 @@ export class ListScreenContainer extends Component {
         <Button onClick={() => console.log(this.props.state)} variant="contained">
           【開発用】Consoleにstate出力
         </Button>
-      </div>
+      </TableFrame>
     );
   }
 }
