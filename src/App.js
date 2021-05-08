@@ -24,7 +24,7 @@ const App = () => {
               <ListScreen />
             </Route>
             <Route path="/details/:detailsId">
-              <Details choices={["選択肢1", "選択肢2", "選択肢3", "選択肢4"]} />
+              <Details />
             </Route>
             <Route path="/" exact>
               <Top />
