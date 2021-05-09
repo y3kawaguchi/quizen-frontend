@@ -1,42 +1,24 @@
 // import {hot} from "react-hot-loader";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Details from "./components/Details";
-import Error from "./components/Error";
+import { BrowserRouter } from "react-router-dom";
 import BodyFrame from "./components/frames/BodyFrame";
 import MainFrame from "./components/frames/MainFrame";
 import Header from "./components/Header";
-import ListScreen from "./components/ListScreen";
 import SideBar from "./components/SideBar";
-import Top from "./components/Top";
+import Router from "./Router";
 
 const App = () => {
   return (
     // BrowserRouterコンポーネントは、画面遷移の際、ヒストリー API に履歴情報を追加してくれる
-    <Router>
+    <BrowserRouter>
       <Header />
       <BodyFrame>
         <SideBar />
         <MainFrame>
-          {/* URL ごとのレンダリング内容の定義。exactを付けると完全一致、付けないと完全一致で比較せず、path が/aboutの場合、/about/aなどでも一致とみなされる */}
-          <Switch>
-            <Route path="/list" exact>
-              <ListScreen />
-            </Route>
-            <Route path="/details/:detailsId">
-              <Details />
-            </Route>
-            <Route path="/" exact>
-              <Top />
-            </Route>
-            {/* 定義していないURLにアクセスされた場合のレンダリング内容を指定したい場合は、path を指定しない Route を最後に記述しておくことで対応可能 */}
-            <Route>
-              <Error />
-            </Route>
-          </Switch>
+          <Router />
         </MainFrame>
       </BodyFrame>
-    </Router>
+    </BrowserRouter>
   );
 };
 
