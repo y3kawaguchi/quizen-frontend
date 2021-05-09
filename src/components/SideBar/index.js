@@ -1,6 +1,7 @@
 import { Drawer, List, withStyles } from "@material-ui/core";
+import { push } from "connected-react-router";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ListItem from "./ListItem";
 
@@ -13,10 +14,13 @@ const styles = (theme) => ({
 });
 
 const SideBar = (props) => {
-  // const { classes, item, path, width = 152 } = props;
-  const { classes, width = 152 } = props;
+  const { classes, width = 160 } = props;
+  const dispatch = useDispatch();
   const history = useHistory();
-  const handleLink = (path) => history.push(path);
+  const handleLink = (path) => {
+    history.push(path);
+    dispatch(push(path));
+  };
   const item = useSelector((state) => state.quizen.sideBarItem);
 
   return (
