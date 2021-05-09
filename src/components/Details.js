@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { loadQuiz } from "../redux/actions";
 import Choices from "./Choices";
+import LoadingScreen from "./LoadingScreen";
 
 export default () => {
   const dispatch = useDispatch();
@@ -14,23 +15,22 @@ export default () => {
   }, []);
 
   const quiz = useSelector((state) => state.quizen.quiz);
-  const choices = quiz.Choices;
+  const choices = quiz.choices;
 
   if (Object.keys(quiz).length !== 0) {
     return (
       <React.Fragment>
-        <h2>{quiz.Question}</h2>
+        <h2>{quiz.question}</h2>
         <Choices
           choices1={choices[0]}
           choices2={choices[1]}
           choices3={choices[2]}
           choices4={choices[3]}
         />
-        <h2>{quiz.Answer}</h2>
+        <h2>{quiz.answer}</h2>
       </React.Fragment>
     );
   } else {
-    // TODO: Implement LoadingScreen
-    return <div>Now loading ...</div>;
+    return <LoadingScreen />;
   }
 };

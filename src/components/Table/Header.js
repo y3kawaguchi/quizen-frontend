@@ -9,7 +9,7 @@ export default () => {
       <TableRow>
         <StyledTableCell>ID</StyledTableCell>
         {/* <StyledTableCell align="right">タイトル</StyledTableCell> */}
-        <StyledTableCell>題名</StyledTableCell>
+        <StyledTableCell>TITLE</StyledTableCell>
       </TableRow>
     </TableHead>
   );
