@@ -3,7 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
+import { push } from "connected-react-router";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import TableHeader from "./Header";
 import StyledTableCell from "./StyledTableCell";
@@ -18,8 +20,12 @@ const useStyles = makeStyles({
 export default (props) => {
   const { quizzes } = props;
   const classes = useStyles();
+  const dispatch = useDispatch();
   const history = useHistory();
-  const handleLink = (path) => history.push(path);
+  const handleLink = (path) => {
+    history.push(path);
+    dispatch(push(path));
+  };
 
   return (
     <TableContainer component={Paper}>

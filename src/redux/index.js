@@ -34,7 +34,7 @@ const reducer = handleActions(
     }),
     [actions.loadQuizSucceeded]: (state, action) => ({
       ...state,
-      loadingQuizzes: false,
+      loadingQuiz: false,
       quiz: action.payload,
     }),
     // [actions.loadQuizzes]: (state, action) => Object.assign({}, state, { loadingQuizzes: true }),
