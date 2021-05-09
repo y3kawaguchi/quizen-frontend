@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import TableFrame from "../components/frames/TableFrame";
+import LoadingScreen from "../components/LoadingScreen";
+import Table from "../components/Table";
 import { loadQuizzes, showList } from "../redux/actions";
-import TableFrame from "./frames/TableFrame";
-import LoadingScreen from "./LoadingScreen";
-import Table from "./Table";
 
 export default () => {
   const dispatch = useDispatch();

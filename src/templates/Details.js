@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import Choices from "../components/Choices";
+import LoadingScreen from "../components/LoadingScreen";
 import { loadQuiz } from "../redux/actions";
-import Choices from "./Choices";
-import LoadingScreen from "./LoadingScreen";
 
 export default () => {
   const dispatch = useDispatch();
