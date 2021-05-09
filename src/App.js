@@ -6,9 +6,9 @@ import Error from "./components/Error";
 import BodyFrame from "./components/frames/BodyFrame";
 import MainFrame from "./components/frames/MainFrame";
 import Header from "./components/Header";
-import Top from "./components/Top";
+import ListScreen from "./components/ListScreen";
 import SideBar from "./components/SideBar";
-import ListScreen from "./containers/ListScreen";
+import Top from "./components/Top";
 
 const App = () => {
   return (
