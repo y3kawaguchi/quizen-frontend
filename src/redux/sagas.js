@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import QuizAPI from "../api/QuizAPI";
 import * as actions from "./actions";
+import * as types from "./types";
 
 function* loadQuizSaga(action) {
   const quizId = action.payload;
@@ -32,6 +33,6 @@ function* loadQuizzesSaga(action) {
 }
 
 export default function* () {
-  yield takeEvery("LOAD_QUIZ", loadQuizSaga);
-  yield takeEvery("LOAD_QUIZZES", loadQuizzesSaga);
+  yield takeEvery(types.LOAD_QUIZ, loadQuizSaga);
+  yield takeEvery(types.LOAD_QUIZZES, loadQuizzesSaga);
 }
