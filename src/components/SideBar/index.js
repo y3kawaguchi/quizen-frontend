@@ -28,6 +28,11 @@ const SideBar = (props) => {
       <List>
         <ListItem label={"top"} onClick={() => handleLink("/")} selected={item === "top"} />
         <ListItem label={"list"} onClick={() => handleLink("/list")} selected={item === "list"} />
+        <ListItem
+          label={"register"}
+          onClick={() => handleLink("/register")}
+          selected={item === "register"}
+        />
       </List>
     </Drawer>
   );

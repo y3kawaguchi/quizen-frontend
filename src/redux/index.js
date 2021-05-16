@@ -55,6 +55,10 @@ const reducer = handleActions(
       ...state,
       sideBarItem: "top",
     }),
+    [actions.showRegister]: (state, action) => ({
+      ...state,
+      sideBarItem: "register",
+    }),
   },
   initialState
 );

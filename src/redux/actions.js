@@ -14,3 +14,4 @@ export const loadQuizzesSucceeded = createAction(
 export const loadQuizzesFailed = createAction(types.LOAD_QUIZZES_FAILED);
 export const showList = createAction(types.SHOW_LIST);
 export const showTop = createAction(types.SHOW_TOP);
+export const showRegister = createAction(types.SHOW_REGISTER);

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Details, Error, ListScreen, Top } from "./templates";
+import { Details, Error, ListScreen, RegisterScreen, Top } from "./templates";
 
 const Router = () => {
   return (
@@ -11,6 +11,9 @@ const Router = () => {
       </Route>
       <Route path="/details/:detailsId">
         <Details />
+      </Route>
+      <Route exact path="/register">
+        <RegisterScreen />
       </Route>
       <Route exact path="(/)?">
         <Top />
