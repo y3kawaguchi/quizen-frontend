@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Choices from "../components/Choices";
@@ -9,7 +9,7 @@ export default () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const quizId = location.pathname.split("/")[2];
-  // https://ja.reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects
+
   useEffect(() => {
     dispatch(loadQuiz(quizId));
   }, []);
@@ -19,7 +19,7 @@ export default () => {
 
   if (Object.keys(quiz).length !== 0) {
     return (
-      <React.Fragment>
+      <Fragment>
         <h2>{quiz.question}</h2>
         <Choices
           choices1={choices[0]}
@@ -27,8 +27,8 @@ export default () => {
           choices3={choices[2]}
           choices4={choices[3]}
         />
-        <h2>{quiz.answer}</h2>
-      </React.Fragment>
+        <h2>{quiz.explanation}</h2>
+      </Fragment>
     );
   } else {
     return <LoadingScreen />;

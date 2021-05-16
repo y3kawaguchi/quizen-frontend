@@ -4,7 +4,7 @@ import React from "react";
 const styles = {
   container: {
     flex: 1,
-    flexDirection: "columns",
+    flexDirection: "row",
     display: "flex",
     padding: 0,
   },

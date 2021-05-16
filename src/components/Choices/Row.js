@@ -1,6 +1,6 @@
 import { Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { Fragment } from "react";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -13,17 +13,17 @@ export default (props) => {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Grid item xs={4}>
         <Button className={classes.button} variant="contained">
-          {props.left}
+          {props.left.content}
         </Button>
       </Grid>
       <Grid item xs={4}>
         <Button className={classes.button} variant="contained">
-          {props.right}
+          {props.right.content}
         </Button>
       </Grid>
-    </React.Fragment>
+    </Fragment>
   );
 };

@@ -33,7 +33,7 @@ export default (props) => {
         <TableHeader />
         <TableBody>
           {quizzes.map((quiz, index) => (
-            <StyledTableRow onClick={() => handleLink(`/details/${quiz.id}`)} key={index}>
+            <StyledTableRow key={index} onClick={() => handleLink(`/details/${quiz.id}`)}>
               <StyledTableCell component="th" scope="row">
                 {quiz.id}
               </StyledTableCell>
