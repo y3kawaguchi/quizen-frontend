@@ -1,7 +1,8 @@
-import { ListItemText as ListItemTextBase, withStyles } from "@material-ui/core";
+import { ListItemText as ListItemTextBase } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   disabled: {
     color: theme.palette.grey["200"],
   },
@@ -11,22 +12,23 @@ const styles = (theme) => ({
   selected: {
     color: theme.palette.primary.main,
   },
-});
+}));
 
-const toClassName = ({ disabled = false, selected = false, classes }) => {
+const getClassName = ({ disabled = false, selected = false }) => {
+  const classes = useStyles();
   if (disabled) {
     return classes.disabled;
   }
   return selected ? classes.selected : classes.notSelected;
 };
 
-export default withStyles(styles)((props) => {
+export default (props) => {
   return (
     <ListItemTextBase
-      classes={{ primary: toClassName(props) }}
+      classes={{ primary: getClassName(props) }}
       primary={props.label}
       align="center"
       style={{ padding: 0 }}
     />
   );
-});
+};

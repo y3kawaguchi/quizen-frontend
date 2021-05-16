@@ -1,15 +1,16 @@
-import { withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
-const styles = {
+const useStyles = makeStyles(() => ({
   container: {
     flexGrow: 1,
     padding: 0,
     minWidth: 0,
   },
-};
+}));
 
-export default withStyles(styles)((props) => {
-  const { children, classes } = props;
+export default (props) => {
+  const classes = useStyles();
+  const { children } = props;
   return <main className={classes.container}>{children}</main>;
-});
+};
