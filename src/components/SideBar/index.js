@@ -1,20 +1,22 @@
-import { Drawer, List, withStyles } from "@material-ui/core";
+import { Drawer, List } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { push } from "connected-react-router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ListItem from "./ListItem";
 
-const styles = (theme) => ({
+const useStyles = makeStyles(() => ({
   drawer: {
     position: "relative",
     flexShrink: 0,
     backgroundColor: "#ADB5BD",
   },
-});
+}));
 
-const SideBar = (props) => {
-  const { classes, width = 160 } = props;
+export default (props) => {
+  const classes = useStyles();
+  const { width = 160 } = props;
   const dispatch = useDispatch();
   const history = useHistory();
   const handleLink = (path) => {
@@ -37,5 +39,3 @@ const SideBar = (props) => {
     </Drawer>
   );
 };
-
-export default withStyles(styles)(SideBar);

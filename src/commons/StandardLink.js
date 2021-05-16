@@ -1,7 +1,7 @@
-import { withStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import Link from "./Link";
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   link: {
     color: theme.palette.secondary.main,
   },
@@ -9,6 +9,9 @@ const styles = (theme) => ({
     color: theme.palette.secondary.main,
     display: "inline",
   },
-});
+}));
 
-export default withStyles(styles)(Link);
+export default () => {
+  const classes = useStyles();
+  return <Link classes={classes} />;
+};
