@@ -1,3 +1,4 @@
+import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -27,11 +28,13 @@ export default (props) => {
   const MemoizedTitleTextInput = useMemo(() => {
     return (
       <TextInput
-        required
+        id="title"
         label="Title"
+        fullWidth={true}
         onChange={(e) => {
           setTitle(e.target.value);
         }}
+        required
       />
     );
   }, [title]);
@@ -40,11 +43,15 @@ export default (props) => {
   const MemoizedQuestionTextInput = useMemo(() => {
     return (
       <TextInput
-        required
+        id="question"
         label="Question"
+        fullWidth={true}
+        multiline={true}
+        rows={3}
         onChange={(e) => {
           setQuestion(e.target.value);
         }}
+        required
       />
     );
   }, [question]);
@@ -53,11 +60,15 @@ export default (props) => {
   const MemoizedExplanationTextInput = useMemo(() => {
     return (
       <TextInput
-        required
+        id="explanation"
         label="Explanation"
+        fullWidth={true}
+        multiline={true}
+        rows={3}
         onChange={(e) => {
           setExplanation(e.target.value);
         }}
+        required
       />
     );
   }, [explanation]);
@@ -66,11 +77,13 @@ export default (props) => {
   const MemoizedChoices1TextInput = useMemo(() => {
     return (
       <TextInput
-        required
+        id="choices1"
         label="Choices1"
+        fullWidth={true}
         onChange={(e) => {
           setChoices1(e.target.value);
         }}
+        required
       />
     );
   }, [choices1]);
@@ -79,11 +92,13 @@ export default (props) => {
   const MemoizedChoices2TextInput = useMemo(() => {
     return (
       <TextInput
-        required
+        id="choices2"
         label="Choices2"
+        fullWidth={true}
         onChange={(e) => {
           setChoices2(e.target.value);
         }}
+        required
       />
     );
   }, [choices2]);
@@ -92,11 +107,13 @@ export default (props) => {
   const MemoizedChoices3TextInput = useMemo(() => {
     return (
       <TextInput
-        required
+        id="choices3"
         label="Choices3"
+        fullWidth={true}
         onChange={(e) => {
           setChoices3(e.target.value);
         }}
+        required
       />
     );
   }, [choices3]);
@@ -105,11 +122,13 @@ export default (props) => {
   const MemoizedChoices4TextInput = useMemo(() => {
     return (
       <TextInput
-        required
+        id="choices4"
         label="Choices4"
+        fullWidth={true}
         onChange={(e) => {
           setChoices4(e.target.value);
         }}
+        required
       />
     );
   }, [choices4]);
@@ -135,17 +154,30 @@ export default (props) => {
 
   return (
     <div className={classes.container}>
-      <h2>Quiz</h2>
+      <Box
+        fontSize={24}
+        borderBottom={"1px solid #C0C0C0"}
+        style={{ width: "16rem", height: "3rem" }}
+      >
+        Quiz
+      </Box>
       {MemoizedTitleTextInput}
       {MemoizedQuestionTextInput}
       {MemoizedExplanationTextInput}
-      <h2>Choices</h2>
+      <Box
+        fontSize={24}
+        borderBottom={"1px solid #C0C0C0"}
+        style={{ width: "16rem", height: "3rem" }}
+      >
+        Choices
+      </Box>
       {MemoizedChoices1TextInput}
       {MemoizedChoices2TextInput}
       {MemoizedChoices3TextInput}
       {MemoizedChoices4TextInput}
       <Spacer size={32} />
       {MemoizedRadioButtonsGroup}
+      <Spacer size={32} />
       <PrimaryButton
         label={"Regist"}
         onClick={() => {
