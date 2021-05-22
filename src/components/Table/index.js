@@ -37,7 +37,6 @@ export default (props) => {
               <StyledTableCell component="th" scope="row">
                 {quiz.id}
               </StyledTableCell>
-              {/* <StyledTableCell align="right">{quiz.title}</StyledTableCell> */}
               <StyledTableCell>{quiz.title}</StyledTableCell>
             </StyledTableRow>
           ))}

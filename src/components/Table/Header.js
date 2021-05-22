@@ -8,8 +8,7 @@ export default () => {
     <TableHead>
       <TableRow>
         <StyledTableCell>ID</StyledTableCell>
-        {/* <StyledTableCell align="right">タイトル</StyledTableCell> */}
-        <StyledTableCell>TITLE</StyledTableCell>
+        <StyledTableCell>Title</StyledTableCell>
       </TableRow>
     </TableHead>
   );

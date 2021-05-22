@@ -5,13 +5,13 @@ import React from "react";
 const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: theme.palette.primary.main,
-    color: "#000",
+    color: theme.palette.common.white,
     fontSize: 16,
     height: 48,
     marginBottom: 16,
     width: 256,
     "&:hover": {
-      backgroundColor: theme.palette.primary.light,
+      backgroundColor: theme.palette.primary.dark,
     },
   },
 }));

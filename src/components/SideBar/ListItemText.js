@@ -7,10 +7,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey["200"],
   },
   notSelected: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.secondary.contrastText,
   },
   selected: {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
   },
 }));
 
