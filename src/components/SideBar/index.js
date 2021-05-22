@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
 
 export default (props) => {
   const classes = useStyles();
-  const { width = 160 } = props;
+  const { width = 140 } = props;
   const dispatch = useDispatch();
   const history = useHistory();
   const handleLink = (path) => {

@@ -32,7 +32,6 @@ export default (props) => {
           multiline={multiline}
           required={required}
           rows={rows}
-          variant="outlined"
           onChange={onChange}
         />
       </dd>
