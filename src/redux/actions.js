@@ -12,6 +12,9 @@ export const loadQuizzesSucceeded = createAction(
   (quizzes) => quizzes
 );
 export const loadQuizzesFailed = createAction(types.LOAD_QUIZZES_FAILED);
+export const registQuiz = createAction(types.REGIST_QUIZ, (payload) => payload);
+export const registQuizSucceeded = createAction(types.REGIST_QUIZ_SUCCEEDED);
+export const registQuizFailed = createAction(types.REGIST_QUIZ_FAILED);
 export const showList = createAction(types.SHOW_LIST);
 export const showTop = createAction(types.SHOW_TOP);
 export const showRegister = createAction(types.SHOW_REGISTER);

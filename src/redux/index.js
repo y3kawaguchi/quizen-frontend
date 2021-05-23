@@ -6,6 +6,7 @@ const initialState = {
   loadingQuizzes: false,
   quiz: {},
   quizzes: {},
+  registeringQuiz: false,
   sideBarItem: "top",
 };
 
@@ -37,6 +38,10 @@ const reducer = handleActions(
       loadingQuiz: false,
       quiz: action.payload,
     }),
+    [actions.loadQuizFailed]: (state, action) => ({
+      ...state,
+      loadingQuiz: false,
+    }),
     // [actions.loadQuizzes]: (state, action) => Object.assign({}, state, { loadingQuizzes: true }),
     [actions.loadQuizzes]: (state, action) => ({
       ...state,
@@ -46,6 +51,22 @@ const reducer = handleActions(
       ...state,
       loadingQuizzes: false,
       quizzes: action.payload,
+    }),
+    [actions.loadQuizzesFailed]: (state, action) => ({
+      ...state,
+      loadingQuizzes: false,
+    }),
+    [actions.registQuiz]: (state, action) => ({
+      ...state,
+      registeringQuiz: true,
+    }),
+    [actions.registQuizSucceeded]: (state, action) => ({
+      ...state,
+      registeringQuiz: false,
+    }),
+    [actions.registQuizFailed]: (state, action) => ({
+      ...state,
+      registeringQuiz: false,
     }),
     [actions.showList]: (state, action) => ({
       ...state,

@@ -6,7 +6,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import RadioButtonsGroup from "../components/RadioButtonsGroup";
 import Spacer from "../components/Spacer";
 import TextInput from "../components/TextInput";
-import { showRegister } from "../redux/actions";
+import { registQuiz, showRegister } from "../redux/actions";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -117,16 +117,16 @@ export default (props) => {
     );
   }, [choices4]);
 
-  const [correct, setCorrect] = useState("number1");
+  const [correct, setCorrect] = useState("rb1");
   const MemoizedRadioButtonsGroup = useMemo(() => {
     return (
       <RadioButtonsGroup
         formLabel={"Which is correct ?"}
         buttons={[
-          { value: "number1", label: "No.1" },
-          { value: "number2", label: "No.2" },
-          { value: "number3", label: "No.3" },
-          { value: "number4", label: "No.4" },
+          { value: "rb1", label: "No.1" },
+          { value: "rb2", label: "No.2" },
+          { value: "rb3", label: "No.3" },
+          { value: "rb4", label: "No.4" },
         ]}
         onChange={(e) => {
           setCorrect(e.target.value);
@@ -177,7 +177,20 @@ export default (props) => {
       <PrimaryButton
         label={"Regist"}
         onClick={() => {
-          console.log("Registed!");
+          dispatch(
+            registQuiz({
+              title: title,
+              question: question,
+              explanation: explanation,
+              choice_contents: [choices1, choices2, choices3, choices4],
+              choice_is_corrects: [
+                "rb1" === correct,
+                "rb2" === correct,
+                "rb3" === correct,
+                "rb4" === correct,
+              ],
+            })
+          );
         }}
       />
     </div>

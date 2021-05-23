@@ -36,4 +36,16 @@ export default class QuizAPI {
     }
     return { response, body: result };
   }
+
+  static async postQuiz(payload) {
+    const response = await fetch(`http://localhost:8080/quizzes`, {
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+      },
+      mode: "cors",
+      method: "POST",
+      body: JSON.stringify(payload),
+    });
+  }
 }
