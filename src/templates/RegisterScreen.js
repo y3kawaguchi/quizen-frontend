@@ -13,7 +13,8 @@ const useStyles = makeStyles(() => ({
     flex: 1,
     flexDirection: "column",
     display: "flex",
-    padding: 0,
+    paddingLeft: 16,
+    paddingRight: 16,
   },
 }));
 
@@ -56,29 +57,12 @@ export default (props) => {
     );
   }, [question]);
 
-  const [explanation, setExplanation] = useState("");
-  const MemoizedExplanationTextInput = useMemo(() => {
-    return (
-      <TextInput
-        id="explanation"
-        label="Explanation"
-        fullWidth={true}
-        multiline={true}
-        rows={3}
-        onChange={(e) => {
-          setExplanation(e.target.value);
-        }}
-        required
-      />
-    );
-  }, [explanation]);
-
   const [choices1, setChoices1] = useState("");
   const MemoizedChoices1TextInput = useMemo(() => {
     return (
       <TextInput
         id="choices1"
-        label="Choices1"
+        label="No.1"
         fullWidth={true}
         onChange={(e) => {
           setChoices1(e.target.value);
@@ -93,7 +77,7 @@ export default (props) => {
     return (
       <TextInput
         id="choices2"
-        label="Choices2"
+        label="No.2"
         fullWidth={true}
         onChange={(e) => {
           setChoices2(e.target.value);
@@ -108,7 +92,7 @@ export default (props) => {
     return (
       <TextInput
         id="choices3"
-        label="Choices3"
+        label="No.3"
         fullWidth={true}
         onChange={(e) => {
           setChoices3(e.target.value);
@@ -123,7 +107,7 @@ export default (props) => {
     return (
       <TextInput
         id="choices4"
-        label="Choices4"
+        label="No.4"
         fullWidth={true}
         onChange={(e) => {
           setChoices4(e.target.value);
@@ -152,22 +136,32 @@ export default (props) => {
     );
   }, [correct]);
 
+  const [explanation, setExplanation] = useState("");
+  const MemoizedExplanationTextInput = useMemo(() => {
+    return (
+      <TextInput
+        id="explanation"
+        label="Explanation"
+        fullWidth={true}
+        multiline={true}
+        rows={3}
+        onChange={(e) => {
+          setExplanation(e.target.value);
+        }}
+        required
+      />
+    );
+  }, [explanation]);
+
   return (
     <div className={classes.container}>
-      <Box
-        fontSize={24}
-        borderBottom={"1px solid #C0C0C0"}
-        style={{ width: "16rem", height: "3rem" }}
-      >
-        Quiz
-      </Box>
       {MemoizedTitleTextInput}
       {MemoizedQuestionTextInput}
-      {MemoizedExplanationTextInput}
+      <Spacer size={32} />
       <Box
-        fontSize={24}
+        fontSize={16}
         borderBottom={"1px solid #C0C0C0"}
-        style={{ width: "16rem", height: "3rem" }}
+        style={{ width: "16rem", height: "2rem" }}
       >
         Choices
       </Box>
@@ -177,6 +171,8 @@ export default (props) => {
       {MemoizedChoices4TextInput}
       <Spacer size={32} />
       {MemoizedRadioButtonsGroup}
+      <Spacer size={32} />
+      {MemoizedExplanationTextInput}
       <Spacer size={32} />
       <PrimaryButton
         label={"Regist"}
