@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 import QuizAPI from "../api/QuizAPI";
 import * as actions from "./actions";
 import * as types from "./types";
@@ -18,7 +18,7 @@ function* loadQuizSaga(action) {
   }
 }
 
-function* loadQuizzesSaga(action) {
+function* loadQuizzesSaga() {
   try {
     const { body } = yield call(QuizAPI.fetchQuizzes);
     if (body) {
@@ -32,7 +32,19 @@ function* loadQuizzesSaga(action) {
   }
 }
 
+function* registQuizSaga(action) {
+  const payload = action.payload;
+  try {
+    yield call(QuizAPI.postQuiz, payload);
+    yield put(actions.registQuizSucceeded());
+  } catch (error) {
+    console.error("failed to post quiz", error);
+    yield put(actions.registQuizFailed());
+  }
+}
+
 export default function* () {
   yield takeEvery(types.LOAD_QUIZ, loadQuizSaga);
   yield takeEvery(types.LOAD_QUIZZES, loadQuizzesSaga);
+  yield takeLatest(types.REGIST_QUIZ, registQuizSaga);
 }
