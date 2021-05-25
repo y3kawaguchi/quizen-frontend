@@ -1,6 +1,6 @@
 import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { memo } from "react";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default (props) => {
+const TextInput = (props) => {
   const { id, label, fullWidth, multiline, required, rows, onChange } = props;
   const classes = useStyles();
 
@@ -38,3 +38,5 @@ export default (props) => {
     </dl>
   );
 };
+
+export default memo(TextInput);
