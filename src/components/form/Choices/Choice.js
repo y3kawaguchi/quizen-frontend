@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import TextInput from "../TextInput";
+import TextInput from "../../uikit/TextInput";
 
 const Choice = (props) => {
   const { id, label, onChange } = props;

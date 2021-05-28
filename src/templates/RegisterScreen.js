@@ -2,9 +2,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Choices from "../components/form/Choices";
-import TextInput from "../components/form/TextInput";
-import PrimaryButton from "../components/PrimaryButton";
-import Spacer from "../components/Spacer";
+import Quiz from "../components/form/Quiz";
+import PrimaryButton from "../components/uikit/PrimaryButton";
+import Spacer from "../components/uikit/Spacer";
 import { registQuiz, showRegister } from "../redux/actions";
 
 const useStyles = makeStyles(() => ({
@@ -27,7 +27,7 @@ export default (props) => {
   const [title, setTitle] = useState(""),
     [question, setQuestion] = useState(""),
     [explanation, setExplanation] = useState(""),
-    [correct, setCorrect] = useState("rb1");
+    [correct, setCorrect] = useState("one");
 
   const handleTitleInput = useCallback((e) => {
       setTitle(e.target.value);
@@ -38,8 +38,8 @@ export default (props) => {
     handleExplanationInput = useCallback((e) => {
       setExplanation(e.target.value);
     }, []),
-    handleRadioButtons = useCallback((e) => {
-      setCorrect(e.target.value);
+    handleToggleButtons = useCallback((e, newCorrect) => {
+      setCorrect(newCorrect);
     }, []);
 
   const choices = new Array(4),
@@ -58,42 +58,29 @@ export default (props) => {
     explanation: explanation,
     choice_contents: [...choices],
     choice_is_corrects: [
-      "rb1" === correct,
-      "rb2" === correct,
-      "rb3" === correct,
-      "rb4" === correct,
+      "one" === correct,
+      "two" === correct,
+      "three" === correct,
+      "four" === correct,
     ],
   };
 
   return (
     <div className={classes.container}>
-      <TextInput id="title" label="Title" fullWidth={true} onChange={handleTitleInput} required />
-      <TextInput
-        id="question"
-        label="Question"
-        fullWidth={true}
-        multiline={true}
-        rows={3}
-        onChange={handleQuestionInput}
-        required
+      <Spacer size={16} />
+      <Quiz
+        handleTitleInput={handleTitleInput}
+        handleQuestionInput={handleQuestionInput}
+        handleExplanationInput={handleExplanationInput}
       />
       <Spacer size={32} />
       <Choices
         handleChoices={handleChoices}
-        handleRadioButtons={handleRadioButtons}
+        correct={correct}
+        handleToggleButtons={handleToggleButtons}
         initialRadioSelect={correct}
       />
-      <Spacer size={32} />
-      <TextInput
-        id="explanation"
-        label="Explanation"
-        fullWidth={true}
-        multiline={true}
-        rows={3}
-        onChange={handleExplanationInput}
-        required
-      />
-      <Spacer size={32} />
+      <Spacer size={48} />
       <PrimaryButton
         label={"Regist"}
         onClick={() => {

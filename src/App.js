@@ -1,5 +1,6 @@
 // import {hot} from "react-hot-loader";
 import { blue, green } from "@material-ui/core/colors";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
@@ -22,6 +23,9 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: blue["A700"],
+    },
+    background: {
+      default: "#fff",
     },
   },
   props: {
@@ -69,6 +73,7 @@ const App = () => {
     <MuiThemeProvider theme={theme}>
       {/* BrowserRouterコンポーネントは、画面遷移の際、ヒストリー API に履歴情報を追加してくれる */}
       <BrowserRouter>
+        <CssBaseline />
         <Header />
         <BodyFrame>
           <SideBar />
