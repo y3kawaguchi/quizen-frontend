@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { memo } from "react";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const PrimaryButton = (props) => {
   const classes = useStyles();
 
   return (
@@ -25,3 +25,5 @@ export default (props) => {
     </Button>
   );
 };
+
+export default memo(PrimaryButton);

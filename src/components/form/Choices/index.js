@@ -1,20 +1,22 @@
 import { Box } from "@material-ui/core";
 import React, { Fragment, memo } from "react";
-import Spacer from "../../Spacer";
+import Spacer from "../../uikit/Spacer";
+import ToggleButtons from "../../uikit/ToggleButtons";
 import Choice from "./Choice";
-import RadioButtons from "./RadioButtons";
 
 const Choices = (props) => {
   const handleChoices = props.handleChoices;
-  const handleRadioButtons = props.handleRadioButtons;
+  const correct = props.correct;
+  const handleToggleButtons = props.handleToggleButtons;
   const initialRadioSelect = props.initialRadioSelect;
 
   return (
     <Fragment>
       <Box
-        fontSize={16}
+        fontSize={24}
         borderBottom={"1px solid #C0C0C0"}
-        style={{ width: "16rem", height: "2rem" }}
+        mb={1}
+        style={{ width: "32rem", height: "2rem" }}
       >
         Choices
       </Box>
@@ -26,13 +28,11 @@ const Choices = (props) => {
           onChange={handleChoice}
         />
       ))}
-      <Spacer size={32} />
-      <RadioButtons
-        formLabel={"Which is correct ?"}
-        onChange={handleRadioButtons}
-        initialValue={initialRadioSelect}
-      />
-      <Spacer size={32} />
+      <Spacer size={8} />
+      <Box fontWeight={600} style={{ marginBottom: 4 }}>
+        Which is correct ?
+      </Box>
+      <ToggleButtons value={correct} onChange={handleToggleButtons} />
     </Fragment>
   );
 };
