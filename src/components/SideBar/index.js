@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default (props) => {
+const SideBar = (props) => {
   const classes = useStyles();
   const { width = 140 } = props;
   const dispatch = useDispatch();
@@ -39,3 +39,5 @@ export default (props) => {
     </Drawer>
   );
 };
+
+export default SideBar;

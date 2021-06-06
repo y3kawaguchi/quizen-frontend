@@ -5,7 +5,7 @@ import Choices from "../components/Choices";
 import { loadQuiz } from "../redux/actions";
 import LoadingScreen from "./LoadingScreen";
 
-export default () => {
+const DetailsScreen = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const quizId = location.pathname.split("/")[2];
@@ -34,3 +34,5 @@ export default () => {
     return <LoadingScreen />;
   }
 };
+
+export default DetailsScreen;

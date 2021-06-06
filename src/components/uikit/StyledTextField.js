@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default (props) => {
+const StyledTextField = (props) => {
   const { id, fullWidth, multiline, required, rows, onChange } = props;
   const classes = useStyles();
 
@@ -40,3 +40,5 @@ export default (props) => {
     />
   );
 };
+
+export default StyledTextField;

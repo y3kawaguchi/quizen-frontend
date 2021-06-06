@@ -9,13 +9,14 @@ export default class QuizAPI {
       method: "GET",
     });
 
-    const result = await response.json();
     if (response.status >= 400) {
       throw new Error(
         `failed to fetch quiz (quiz_id: ${quizId}, status: ${response.status} [${response.statusText}])`
       );
     }
-    return { response, body: result };
+
+    const body = await response.json();
+    return { response, body };
   }
 
   static async fetchQuizzes() {
@@ -28,13 +29,14 @@ export default class QuizAPI {
       method: "GET",
     });
 
-    const result = await response.json();
     if (response.status >= 400) {
       throw new Error(
         `failed to fetch quizzes (status: ${response.status} [${response.statusText}])`
       );
     }
-    return { response, body: result };
+
+    const body = await response.json();
+    return { response, body };
   }
 
   static async postQuiz(payload) {
@@ -47,5 +49,12 @@ export default class QuizAPI {
       method: "POST",
       body: JSON.stringify(payload),
     });
+
+    if (response.status >= 400) {
+      throw new Error(`failed to post quiz (status: ${response.status} [${response.statusText}])`);
+    }
+
+    const body = await response.json();
+    return { response, body };
   }
 }

@@ -4,9 +4,10 @@ module.exports = {
     es6: true,
     browser: true,
     node: true,
+    jest: true,
   },
   parser: "babel-eslint",
-  plugins: ["react"],
+  plugins: ["react", "testing-library"],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
@@ -20,9 +21,25 @@ module.exports = {
     "plugin:react/recommended",
     // Prettier 関連
     "plugin:prettier/recommended",
-    "prettier/react",
   ],
   rules: {
     // お好みで構文解析のルールを追加
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debug": "warn",
+    "testing-library/no-dom-import": "off",
+    "react/prop-types": "off",
   },
+  overrides: [
+    {
+      files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+      extends: ["plugin:testing-library/react"],
+    },
+  ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  root: true,
 };

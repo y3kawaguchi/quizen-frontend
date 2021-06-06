@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default (props) => {
+const RegisterScreen = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -90,3 +90,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default RegisterScreen;

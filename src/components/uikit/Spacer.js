@@ -6,6 +6,7 @@ const Spacer = (props) => {
   const height = axis === "horizontal" ? 1 : size;
   return (
     <span
+      role={"spacer"}
       style={{
         display: "block",
         width,

@@ -3,13 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ChoicesRow from "./Row";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
 }));
 
-export default (props) => {
+const Choices = (props) => {
   const { choices1, choices2, choices3, choices4 } = props;
   const classes = useStyles();
 
@@ -26,3 +26,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default Choices;

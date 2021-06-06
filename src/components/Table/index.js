@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default (props) => {
+const QuizTable = (props) => {
   const { quizzes } = props;
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -45,3 +45,5 @@ export default (props) => {
     </TableContainer>
   );
 };
+
+export default QuizTable;

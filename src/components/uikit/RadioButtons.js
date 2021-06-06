@@ -2,7 +2,7 @@ import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@ma
 import React from "react";
 import Spacer from "./Spacer";
 
-export default (props) => {
+const RadioButtons = (props) => {
   const { buttons, formLabel, initialValue, onChange } = props;
 
   return (
@@ -22,3 +22,5 @@ export default (props) => {
     </FormControl>
   );
 };
+
+export default RadioButtons;

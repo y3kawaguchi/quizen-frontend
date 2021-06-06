@@ -22,7 +22,7 @@ const getClassName = ({ disabled = false, selected = false }) => {
   return selected ? classes.selected : classes.notSelected;
 };
 
-export default (props) => {
+const SideBarListItemText = (props) => {
   return (
     <ListItemTextBase
       classes={{ primary: getClassName(props) }}
@@ -32,3 +32,5 @@ export default (props) => {
     />
   );
 };
+
+export default SideBarListItemText;
