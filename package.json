@@ -8,7 +8,7 @@
     "build": "./node_modules/.bin/webpack --mode development",
     "test": "jest",
     "fix": "prettier --config .prettierrc --write src/",
-    "eslint": "eslint src/"
+    "lint": "eslint src/"
   },
   "husky": {
     "hooks": {
