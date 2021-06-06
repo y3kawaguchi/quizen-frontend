@@ -8,7 +8,6 @@ const Choices = (props) => {
   const handleChoices = props.handleChoices;
   const correct = props.correct;
   const handleToggleButtons = props.handleToggleButtons;
-  const initialRadioSelect = props.initialRadioSelect;
 
   return (
     <Fragment>

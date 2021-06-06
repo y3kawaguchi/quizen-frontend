@@ -9,8 +9,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default (props) => {
+const MainFrame = (props) => {
   const classes = useStyles();
   const { children } = props;
   return <main className={classes.container}>{children}</main>;
 };
+
+export default MainFrame;

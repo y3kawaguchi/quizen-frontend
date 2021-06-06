@@ -1,5 +1,7 @@
 import React from "react";
 
-export default () => {
+const ErrorScreen = () => {
   return <h2>エラー画面</h2>;
 };
+
+export default ErrorScreen;

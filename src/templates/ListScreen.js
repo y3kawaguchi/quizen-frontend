@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TableFrame from "../components/frames/TableFrame";
-import Table from "../components/Table";
+import QuizTable from "../components/Table";
 import { loadQuizzes, showList } from "../redux/actions";
 import LoadingScreen from "./LoadingScreen";
 
-export default () => {
+const ListScreen = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,10 +18,12 @@ export default () => {
   if (Object.keys(quizzes).length !== 0) {
     return (
       <TableFrame>
-        <Table quizzes={quizzes} />
+        <QuizTable quizzes={quizzes} />
       </TableFrame>
     );
   } else {
     return <LoadingScreen />;
   }
 };
+
+export default ListScreen;

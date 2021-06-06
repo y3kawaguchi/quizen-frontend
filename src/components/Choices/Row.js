@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const ChoicesRow = (props) => {
   const classes = useStyles();
 
   return (
@@ -27,3 +27,5 @@ export default (props) => {
     </Fragment>
   );
 };
+
+export default ChoicesRow;

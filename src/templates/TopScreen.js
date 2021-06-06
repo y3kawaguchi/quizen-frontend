@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { showTop } from "../redux/actions";
 
-export default () => {
+const TopScreen = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -11,3 +11,5 @@ export default () => {
 
   return <h2>Top</h2>;
 };
+
+export default TopScreen;

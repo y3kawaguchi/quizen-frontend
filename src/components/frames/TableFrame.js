@@ -10,8 +10,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default (props) => {
+const TableFrame = (props) => {
   const classes = useStyles();
   const { children } = props;
   return <div className={classes.container}>{children}</div>;
 };
+
+export default TableFrame;

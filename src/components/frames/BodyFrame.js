@@ -10,8 +10,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default (props) => {
+const BodyFrame = (props) => {
   const classes = useStyles();
   const { children } = props;
   return <div className={classes.container}>{children}</div>;
 };
+
+export default BodyFrame;

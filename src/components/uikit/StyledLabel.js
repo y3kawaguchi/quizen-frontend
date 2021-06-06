@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default (props) => {
+const StyledLabel = (props) => {
   const { id, value } = props;
   const classes = useStyles();
 
@@ -17,3 +17,5 @@ export default (props) => {
     </label>
   );
 };
+
+export default StyledLabel;
