@@ -1,14 +1,93 @@
 import { handleActions } from "redux-actions";
 import * as actions from "./actions";
 
-const initialState = {
-  loadingQuiz: false,
-  loadingQuizzes: false,
-  quiz: {},
-  quizzes: {},
-  registeringQuiz: false,
-  sideBarItem: "top",
-};
+const initialState =
+  process.env.NODE_ENV === "storybook"
+    ? {
+        loadingQuiz: false,
+        loadingQuizzes: false,
+        quiz: {
+          id: 1,
+          title: "test_title_1",
+          question: "test_question_1",
+          choices: [
+            {
+              quiz_id: 1,
+              choice_id: 1,
+              content: "test_choice_1",
+              is_correct: false,
+              created_at: "2021-06-05T21:40:12.864771Z",
+              updated_at: "2021-06-05T21:40:12.864771Z",
+            },
+            {
+              quiz_id: 1,
+              choice_id: 2,
+              content: "test_choice_2",
+              is_correct: false,
+              created_at: "2021-06-05T21:40:12.866912Z",
+              updated_at: "2021-06-05T21:40:12.866912Z",
+            },
+            {
+              quiz_id: 1,
+              choice_id: 3,
+              content: "test_choice_3",
+              is_correct: true,
+              created_at: "2021-06-05T21:40:12.868433Z",
+              updated_at: "2021-06-05T21:40:12.868433Z",
+            },
+            {
+              quiz_id: 1,
+              choice_id: 4,
+              content: "test_choice_4",
+              is_correct: false,
+              created_at: "2021-06-05T21:40:12.869776Z",
+              updated_at: "2021-06-05T21:40:12.869776Z",
+            },
+          ],
+          explanation: "test_explanation_1",
+          created_at: "2021-06-05T21:40:12.859655Z",
+          updated_at: "2021-06-05T21:40:12.859655Z",
+        },
+        quizzes: [
+          {
+            id: 1,
+            title: "test_title_1",
+            question: "test_question_1",
+            choices: null,
+            explanation: "test_explanation_1",
+            created_at: "2021-06-05T21:40:12.859655Z",
+            updated_at: "2021-06-05T21:40:12.859655Z",
+          },
+          {
+            id: 2,
+            title: "test_title_2",
+            question: "test_question_2",
+            choices: null,
+            explanation: "test_explanation_2",
+            created_at: "2021-06-05T21:40:12.859655Z",
+            updated_at: "2021-06-05T21:40:12.859655Z",
+          },
+          {
+            id: 3,
+            title: "test_title_3",
+            question: "test_question_3",
+            choices: null,
+            explanation: "test_explanation_3",
+            created_at: "2021-06-05T21:40:12.859655Z",
+            updated_at: "2021-06-05T21:40:12.859655Z",
+          },
+        ],
+        registeringQuiz: false,
+        sideBarItem: "list",
+      }
+    : {
+        loadingQuiz: false,
+        loadingQuizzes: false,
+        quiz: {},
+        quizzes: {},
+        registeringQuiz: false,
+        sideBarItem: "top",
+      };
 
 const reducer = handleActions(
   {

@@ -10,7 +10,7 @@ import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import Router from "./Router";
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   mixins: {
     toolbar: {
       // Lower the height of the header
