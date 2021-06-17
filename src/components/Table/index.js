@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
-import { push } from "connected-react-router";
+import { replace } from "connected-react-router";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -24,7 +24,7 @@ const QuizTable = (props) => {
   const history = useHistory();
   const handleLink = (path) => {
     history.push(path);
-    dispatch(push(path));
+    dispatch(replace(path));
   };
 
   return (
