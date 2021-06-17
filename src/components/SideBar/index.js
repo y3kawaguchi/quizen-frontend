@@ -1,6 +1,6 @@
 import { Drawer, List } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { push } from "connected-react-router";
+import { replace } from "connected-react-router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -21,7 +21,7 @@ const SideBar = (props) => {
   const history = useHistory();
   const handleLink = (path) => {
     history.push(path);
-    dispatch(push(path));
+    dispatch(replace(path));
   };
   const item = useSelector((state) => state.quizen.sideBarItem);
 
